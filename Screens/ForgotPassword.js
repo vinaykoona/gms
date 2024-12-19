@@ -3,18 +3,37 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState('');
-  
 
-  const handlePasswordReset = () => {
-    // In a real application, you'll send an email reset request to your backend
+  const handlePasswordReset = async () => {
     if (!email) {
       Alert.alert('Error', 'Please enter your email address.');
       return;
     }
 
-    // Fake password reset logic
-    Alert.alert('Password Reset', `A password reset link has been sent to ${email}`);
-    navigation.navigate('Login'); // Navigate back to login screen
+    try {
+      // Use fetch to send a POST request for password reset
+      const response = await fetch('http://localhost:9191/registration/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();  // Parse the JSON response
+
+      if (response.status === 200) {
+        // If the response is successful, show success message
+        Alert.alert('Password Reset', `A password reset link has been sent to ${email}`);
+        navigation.navigate('Login'); // Navigate to login after success
+      } else {
+        // If the response has an error message
+        Alert.alert('Error', data.message || 'An error occurred while sending the reset link.');
+      }
+    } catch (error) {
+      console.error('Error sending password reset email:', error);
+      Alert.alert('Error', 'Something went wrong. Please try again later.');
+    }
   };
 
   return (

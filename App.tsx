@@ -1,9 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// **
+//   *Sample React Native App
+//   *https://github.com/facebook/react-native
+
+//  @format
+ 
 
 // import React from 'react';
 // import type {PropsWithChildren} from 'react';
@@ -117,25 +117,39 @@
 
 
 
+// import React from "react";
+// import Dashboard from "./Dashboard/Dashboard";
+// const App=()=>{
+//   return(
+//     <div>
+//       <Dashboard></Dashboard>
+//     </div>
+//   )
+// }
+// export default App;
+
+// 
+
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginPage from './Screens/LoginPage';  // Import the LoginPage
-import Register from './Screens/Register';
-import HomePage from './Screens/HomePage';    // Import the HomePage
-import ForgotPassword from './Screens/ForgotPassword';
-
+import Homepage from './Dashboard/Homepage';
+import AddCar from './Dashboard/AddCar';
+import ManageServices from './Dashboard/ManageService';
+import Cars from './Dashboard/Cars';
+import CustomerFeedback from  './Dashboard/CustomerFeedback';
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginPage} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Home" component={HomePage}/>
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
+      <Stack.Navigator initialRouteName="HomePage">
+        <Stack.Screen name="HomePage" component={Homepage} />
+        <Stack.Screen name="AddCar" component={AddCar} />
+        <Stack.Screen name="ManageServices" component={ManageServices} />
+        <Stack.Screen name="Cars" component={Cars} />
+        <Stack.Screen name="CustomerFeedback" component={CustomerFeedback} />
       </Stack.Navigator>
     </NavigationContainer>
   );
