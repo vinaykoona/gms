@@ -7,6 +7,8 @@ const ManageServices = ({ navigation }) => {
     { id: '1', carName: 'Toyota Corolla', serviceType: 'Oil Change', status: 'In Progress' },
     { id: '2', carName: 'Honda Civic', serviceType: 'Tire Change', status: 'Completed' },
     { id: '3', carName: 'Ford Mustang', serviceType: 'Engine Diagnostics', status: 'Pending' },
+   
+    
   ]);
 
   const handleServiceClick = (serviceId) => {

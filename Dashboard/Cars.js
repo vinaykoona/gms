@@ -6,12 +6,14 @@ const Cars = ({ navigation }) => {
   const [cars, setCars] = useState([
     { id: '1', carName: 'Toyota Corolla', model: '2020', status: 'In Service' },
     { id: '2', carName: 'Honda Civic', model: '2018', status: 'Parked' },
-    { id: '3', carName: 'Ford Mustang', model: '2022', status: 'In Service' },
+    { id: '3', carName: 'Ford Mustang', model: '2022', status: 'In Service'
+     },
+     
   ]);
 
   const handleCarClick = (carId) => {
     // Navigate to a screen to manage the selected car's service or details
-    alert(`Manage Car: ${carId}`);
+    alert(`Manage Cars: ${carId}`);
   };
 
   return (
